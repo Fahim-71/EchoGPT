@@ -1,0 +1,34 @@
+/**
+ * Self-hosted Geist, declared by hand rather than through `next/font`.
+ *
+ * The MV3 build sets `assetPrefix: "./"` so webpack's runtime resolves chunks
+ * against the extension root, and `next/font` rejects a relative assetPrefix
+ * outright. Declaring the two variable faces here sidesteps that entirely.
+ *
+ * The URLs are root-absolute on purpose: they resolve against the stylesheet's
+ * origin, which is the site root on the hosted showcase and
+ * `chrome-extension://<id>/` inside the bundle. The files are copied from the
+ * `geist` package into `public/fonts/` and ship with the bundle, so the popup
+ * paints without a single network request.
+ */
+
+@font-face {
+  font-family: "Geist Variable";
+  src: url("/fonts/Geist-Variable.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono Variable";
+  src: url("/fonts/GeistMono-Variable.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-geist-sans: "Geist Variable";
+  --font-geist-mono: "Geist Mono Variable";
+}

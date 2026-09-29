@@ -1,0 +1,48 @@
+/**
+ * The only styles that reach the host page.
+ *
+ * Everything the tooltip actually looks like lives inside its shadow root (see
+ * content.js). What cannot live there is the host element's own position in
+ * the page: a shadow root styles its contents, not the element it hangs off.
+ * So this file is deliberately one rule set on one id, with no selectors that
+ * could ever match something the page owns.
+ *
+ * `all: initial` inside the shadow root handles inheritance; these properties
+ * are the ones a host page's `div { ... }` or `* { ... }` rule could otherwise
+ * break, so they are stated explicitly and marked important.
+ */
+
+#echogpt-selection-host {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  /* Below Chrome's own UI but above essentially every page's own layering. */
+  z-index: 2147483000 !important;
+  display: none;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  width: auto !important;
+  height: auto !important;
+  max-width: none !important;
+  max-height: none !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  background: none !important;
+  transform: none !important;
+  float: none !important;
+  clip: auto !important;
+  clip-path: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  isolation: isolate !important;
+  contain: layout style !important;
+}
+
+@media print {
+  /* Never let the tooltip end up in a printed page. */
+  #echogpt-selection-host {
+    display: none !important;
+  }
+}
