@@ -17,9 +17,9 @@ the architecture, the assumptions, and what was deliberately left out.
 
 | Project | URL |
 | --- | --- |
-| Web app redesign | _add Vercel URL_ |
-| Landing page | _add Vercel URL_ |
-| Extension showcase | _add Vercel URL_ |
+| Web app redesign | https://echogpt-webapp-three.vercel.app |
+| Landing page | https://echogpt-landing-phi.vercel.app |
+| Extension showcase | https://echogpt-extension-zeta.vercel.app |
 
 Each folder deploys as its own Vercel project — import the repository three
 times and set **Root Directory** to the folder. No environment variables are
